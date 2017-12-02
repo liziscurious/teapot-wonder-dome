@@ -43,6 +43,14 @@ router.get('/:id', async (req, res) => {
 
 // update (PUT)
 
-// delete (DELETE)
+// delete (DELETE) ----->> only deletes teapots now <<--------
+router.delete('/:id', async (req, res) => {
+  try {
+    const teapot = await Teapot.findByIdAndRemove(req.params.id);
+    res.redirect('/');
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
 module.exports  = router;
