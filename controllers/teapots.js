@@ -57,6 +57,14 @@ router.get('/:id/edit', async (req, res) => {
 });
 
 // update (PUT)
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedTeapot = await Teapot.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect('/');
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
 // delete (DELETE) ----->> only deletes teapots now <<--------
 router.delete('/:id', async (req, res) => {
