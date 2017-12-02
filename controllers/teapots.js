@@ -47,6 +47,14 @@ router.get('/:id', async (req, res) => {
 });
 
 // edit (GET)
+router.get('/:id/edit', async (req, res) => {
+  try {
+    const editThisTeapot = await Teapot.findById(req.params.id);
+    res.send({editThisTeapot});
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
 // update (PUT)
 
