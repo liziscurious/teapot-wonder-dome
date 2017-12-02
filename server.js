@@ -18,7 +18,7 @@ db.on('error', (err) => console.log(err.message));
 db.on('connected', () => console.log('Mongo running: ', mongoURI));
 
 // controllers
-// const teapotsController   = require('./controllers/teapots.js');
+const teapotsController   = require('./controllers/teapots.js');
 // const commentsController  = require('./controllers/comments.js');
 
 // middleware
@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
-// app.use('/teapots', teapotsController);
+app.use('/teapots', teapotsController);
 // app.use('/comments', commentsController);
 
 // root route
