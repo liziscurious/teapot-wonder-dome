@@ -1,0 +1,27 @@
+{
+  "name": "teapot-wonder-dome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liziscurious/teapot-wonder-dome.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liziscurious/teapot-wonder-dome/issues"
+  },
+  "homepage": "https://github.com/liziscurious/teapot-wonder-dome#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.13.5",
+    "pretty-error": "^2.1.1"
+  }
+}
