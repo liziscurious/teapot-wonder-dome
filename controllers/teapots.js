@@ -18,6 +18,13 @@ router.get('/', async (req, res) => {
 });
 
 // new  (GET)
+router.get('/new', (req, res) => {
+  try {
+    res.send("This is the route to add a NEW teapot");
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
 // create (POST)
 router.post('/', async (req, res) => {
