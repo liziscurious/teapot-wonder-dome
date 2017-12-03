@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Teapot Wonder Dome Index</title>
+    <style> img { max-width: 50%;} </style>
+  </head>
+  <body>
+    <h1>Welcome to the Teapot Wonder Dome</h1>
+    <br/>
+
+    <% for(let teapot of allTeapots) { %>
+      <a href = "/teapots/<%=teapot._id%>">
+        <img src="<%=teapot.url%>"/>
+        </a>
+    <% } %>
+  </body>
+</html>

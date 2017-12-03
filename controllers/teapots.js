@@ -1,16 +1,17 @@
-// this is the controller
+// <<<<<<<This is the controller>>>>>>>>>
 const express     = require('express');
 const router      = express.Router();
 
 // models
 const Teapot      = require('../models/teapots.js');
-// const Comment     = require('../models/comments.js');
+const Comment     = require('../models/comments.js');
 
 // index route (GET)
 router.get('/', async (req, res) => {
   try{
     const allTeapots = await Teapot.find();
-    res.send({allTeapots});
+    res.render('./teapots/index.ejs', {allTeapots});
+    // res.send({allTeapots});
     // res.send("Welcome to the Teapot Wonder Dome Index")
   } catch (err) {
     res.send(err.message);
@@ -40,7 +41,8 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const oneTeapot = await Teapot.findById(req.params.id);
-    res.send({oneTeapot});
+    // res.send({oneTeapot});
+    res.render('./teapots/show.ejs', {oneTeapot})
   } catch (err) {
     res.send(err.message);
   }
@@ -56,7 +58,7 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
-// update (PUT)
+// update (PUT)     --------->> teapots only <<--------------
 router.put('/:id', async (req, res) => {
   try {
     const updatedTeapot = await Teapot.findByIdAndUpdate(req.params.id, req.body);
