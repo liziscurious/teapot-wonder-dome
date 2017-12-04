@@ -2,13 +2,13 @@ const express         = require('express');
 const mongoose        = require('mongoose');
 const morgan          = require('morgan');
 const app             = express();
-const PORT            = 3000;
 const methodOverride  = require('method-override');
 require('pretty-error').start();
+const PORT            = process.env.PORT || 3000;
 
 
 // connect to database
-const mongoURI = 'mongodb://localhost:27017/teapot-wonder-dome';
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/teapot-wonder-dome';
 mongoose.connect(mongoURI, { useMongoClient: true});
 mongoose.Promise  = global.Promise;
 
