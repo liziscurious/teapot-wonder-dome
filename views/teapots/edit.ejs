@@ -8,10 +8,30 @@
     <h1>Edit This Teapot</h1>
 
     <form class="edit" action="/teapots/<%=editThisTeapot.id%>?_method=PUT" method="POST">
-      <label for="url">Image</label>
-      <input type="text" name="url" value="<%=editThisTeapot.url%>">
-      <label for="submitted_by">Submitted by:</label>
-      <input type="text" name="submitted_by" value="<%=editThisTeapot.submitted_by%>">
+      <div class="form-group">
+        <label for="url">Image</label>
+        <input type="text" name="url" value="<%=editThisTeapot.url%>">
+      </div>
+
+      <div class="form-group">
+        <label for="nameOfTeapot">Name of teapot: </label>
+        <input type="text" name="nameOfTeapot" value="<%=editThisTeapot.nameOfTeapot%>"/>
+      </div>
+
+      <div class="form-group">
+        <label for="material">Material: </label>
+        <input type="text" name="material" value="<%=editThisTeapot.material%>"/>
+      </div>
+
+      <div class="form-group">
+        <label for="writeUp">Write up: </label>
+        <input type="text" name="writeUp" value="<%=editThisTeapot.writeUp%>"/>
+      </div>
+
+      <div class="form-group">
+        <label for="submitted_by">Submitted by:</label>
+        <input type="text" name="submitted_by" value="<%=editThisTeapot.submitted_by%>">
+      </div>
       <button class="submit">Submit changes</button>
     </form>
 

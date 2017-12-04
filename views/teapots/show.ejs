@@ -9,13 +9,25 @@
     <h1>This Teapot Right Here</h1>
 
     <img src="<%= oneTeapot.url %>" />
-    <h2> Submitted by: <%= oneTeapot.submitted_by %>
-    </h2>
+    <h3>Teapot: <%= oneTeapot.nameOfTeapot %> </h3>
+    <h3>Material: <%= oneTeapot.material %> </h3>
+    <h3>Write Up: <%= oneTeapot.writeUp %> </h3>
+    <h2> Submitted by: <%= oneTeapot.submitted_by %> </h2>
     <h2> Comments </h2>
     <% for (let comment of comments )  { %>
       <p> <%= comment.author %> : <%= comment.content %> </p>
-
     <% } %>
+
+    <h3>Add a Comment</h3>
+
+    <form action="/comments" method="post">
+      <label for="author">User </label>
+      <input type="text" name="author"/>
+      <label for="content">Comment </label>
+      <input type="text" name="content"/>
+      <input type="hidden" name="teapot" value="<%= oneTeapot._id %>"/>
+      <input type="submit" name="submit" class="btn btn-info"/>
+    </form>
 
     <form action="/teapots/<%=oneTeapot.id%>?_method=DELETE" method=POST>
       <button class="delete-button">Delete this teapot</button>
