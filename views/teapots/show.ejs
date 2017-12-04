@@ -11,5 +11,19 @@
     <img src="<%= oneTeapot.url %>" />
     <h2> Submitted by: <%= oneTeapot.submitted_by %>
     </h2>
+    <h2> Comments </h2>
+    <% for (let comment of comments )  { %>
+      <p> <%= comment.author %> : <%= comment.content %> </p>
+
+    <% } %>
+
+    <form action="/teapots/<%=oneTeapot.id%>?_method=DELETE" method=POST>
+      <button class="delete-button">Delete this teapot</button>
+    </form>
+
+    <br/>
+    <a href="/teapots/<%=oneTeapot._id%>/edit">Edit this teapot</a>
+    <br/>
+    <a href="/teapots">Go Home</a>
   </body>
 </html>

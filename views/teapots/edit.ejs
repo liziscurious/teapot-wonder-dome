@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit a Teapot</title>
+  </head>
+  <body>
+    <h1>Edit This Teapot</h1>
+
+    <form class="edit" action="/teapots/<%=editThisTeapot.id%>?_method=PUT" method="POST">
+      <label for="url">Image</label>
+      <input type="text" name="url" value="<%=editThisTeapot.url%>">
+      <label for="submitted_by">Submitted by:</label>
+      <input type="text" name="submitted_by" value="<%=editThisTeapot.submitted_by%>">
+      <button class="submit">Submit changes</button>
+    </form>
+
+  </body>
+</html>

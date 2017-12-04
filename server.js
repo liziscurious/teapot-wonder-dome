@@ -26,11 +26,12 @@ app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 app.use('/teapots', teapotsController);
 app.use('/comments', commentsController);
 
 // root route
-app.get('/', (req, res) => res.redirect('/photos'));
+app.get('/', (req, res) => res.redirect('/teapots'));
 
 // listen up
 app.listen(PORT, () => {

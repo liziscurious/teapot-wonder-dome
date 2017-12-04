@@ -21,7 +21,8 @@ router.get('/', async (req, res) => {
 // new  (GET)
 router.get('/new', (req, res) => {
   try {
-    res.send("This is the route to add a NEW teapot");
+    // res.send("This is the route to add a NEW teapot");
+    res.render('./teapots/new.ejs');
   } catch (err) {
     res.send(err.message);
   }
@@ -31,7 +32,8 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newTeapot = await Teapot.create(req.body);
-    res.send({newTeapot});
+    res.redirect('/teapots/'+newTeapot.id);
+    // res.redirect('/teapots/');
   } catch (err) {
     res.send(err.message);
   }
@@ -41,8 +43,9 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const oneTeapot = await Teapot.findById(req.params.id);
+    const comments  = await Comment.find( {teapot: oneTeapot._id});
     // res.send({oneTeapot});
-    res.render('./teapots/show.ejs', {oneTeapot})
+    res.render('./teapots/show.ejs', {oneTeapot, comments});
   } catch (err) {
     res.send(err.message);
   }
@@ -52,7 +55,8 @@ router.get('/:id', async (req, res) => {
 router.get('/:id/edit', async (req, res) => {
   try {
     const editThisTeapot = await Teapot.findById(req.params.id);
-    res.send({editThisTeapot});
+    res.render('./teapots/edit.ejs', {editThisTeapot});
+    // res.send({editThisTeapot});
   } catch (err) {
     res.send(err.message);
   }
