@@ -10,9 +10,16 @@ const Comment     = require('../models/comments.js');
 router.get('/', async (req, res) => {
   try{
     const allTeapots = await Teapot.find();
-    res.render('./teapots/index.ejs', {allTeapots});
-    // res.send({allTeapots});
-    // res.send("Welcome to the Teapot Wonder Dome Index")
+    if (req.session.logged) {
+      res.render('./teapots/index.ejs', {
+        allTeapots,
+        username: req.session.username
+      });
+      // res.send({allTeapots});
+      // res.send("Welcome to the Teapot Wonder Dome Index")
+    } else {
+      res.redirect('/user/login');
+    }
   } catch (err) {
     res.send(err.message);
   }

@@ -5,6 +5,8 @@ const app             = express();
 const methodOverride  = require('method-override');
 require('pretty-error').start();
 const PORT            = process.env.PORT || 3000;
+const bcrypt          = require('bcrypt');
+const session         = require('express-session');
 
 
 // connect to database
@@ -17,18 +19,27 @@ const db = mongoose.connection;
 db.on('error', (err) => console.log(err.message));
 db.on('connected', () => console.log('Mongo running: ', mongoURI));
 
-// controllers
-const teapotsController   = require('./controllers/teapots.js');
-const commentsController  = require('./controllers/comments.js');
-
 // middleware
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
+app.use(session({
+  secret: 'mdcoiegrkj', //random string
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// controllers
+const teapotsController   = require('./controllers/teapots.js');
+const commentsController  = require('./controllers/comments.js');
+const sessionsController  = require('./controllers/sessions.js');
+
+// more middleware
 app.use('/teapots', teapotsController);
 app.use('/comments', commentsController);
+app.use('/user', sessionsController);
 
 // root route
 app.get('/', (req, res) => res.redirect('/teapots'));

@@ -1,3 +1,8 @@
 <meta charset="utf-8">
 <title>Teapot Wonder Dome</title>
 <link rel="stylesheet" href="/style.css">
+<header>
+  <% if (username) { %>
+    Welcome, <%= username %>. <a href="/user/logout">Log out</a>
+  <% } %>
+</header>
