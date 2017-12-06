@@ -29,4 +29,10 @@ router.post('/', async (req, res) => {
   }
 });
 
+// delete route
+router.delete('/:id', async (req, res) => {
+  const comment = await Comment.findByIdAndRemove(req.params.id);
+  res.redirect('back');
+});
+
 module.exports  = router;

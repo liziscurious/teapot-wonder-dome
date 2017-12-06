@@ -83,6 +83,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const teapot = await Teapot.findByIdAndRemove(req.params.id);
+    await Comment.remove({ teapot: teapot._id});
     res.redirect('/');
   } catch (err) {
     res.send(err.message);

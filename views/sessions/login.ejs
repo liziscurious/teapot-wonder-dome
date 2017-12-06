@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <% include ../partials/head.ejs %>
   </head>
 
   <body>
@@ -16,6 +16,12 @@
 
       <br/>
 
-      
+      <h2>Register</h2>
+      <form action="/user/register" method="post">
+        Username: <input name="username" /> <br />
+        Password: <input name="password" /><br />
+        <button type="submit">Register</button>
+      </form>
+
   </body>
 </html>
