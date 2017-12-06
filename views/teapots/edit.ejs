@@ -4,6 +4,7 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
+    <% include ../partials/user_welcome.ejs %>
     <h1>Edit This Teapot</h1>
 
     <form class="edit" action="/teapots/<%=editThisTeapot.id%>?_method=PUT" method="POST">

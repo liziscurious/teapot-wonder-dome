@@ -5,14 +5,21 @@
   </head>
   <body>
     <% include ../partials/user_welcome.ejs %>
-    <h1>Welcome to the Teapot Wonder Dome</h1>
-    <a href="/teapots/new">Add a new teapot</a>
-    <br/>
 
-    <% for(let teapot of allTeapots) { %>
-      <a href = "/teapots/<%=teapot._id%>">
-        <img src="<%=teapot.url%>"/>
-        </a>
-    <% } %>
+    <div class="container-fluid">
+      <div class="page-header text-center">
+        <h1>Welcome to the Teapot Wonder Dome</h1>
+      </div>
+      <div class="container-fluid">
+          <% for(let teapot of allTeapots) { %>
+            <div class="col-xs-6 col-md-4">
+              <a href = "/teapots/<%=teapot._id%>">
+                <img src="<%=teapot.url%>"/>
+              </a>
+            </div>
+          <% } %>
+      </div>
+    </div>
+
   </body>
 </html>

@@ -6,22 +6,37 @@
   </head>
 
   <body>
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation" class="active"><a href="/teapots">Home</a></li>
+    </ul>
 
-      <h2>Log In</h2>
+    <div class="container">
       <form action="/user/login" method="post">
-        Username: <input name="username" /> <br />
-        Password: <input name="password" /><br />
-        <button type="submit">Submit</button>
+        <h2>Log In</h2>
+        <div class="form-group">
+          Username: <input name="username" /> <br />
+        </div>
+        <div class="form-group">
+          Password: <input name="password" /><br />
+        </div>
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
       </form>
-
       <br/>
-
-      <h2>Register</h2>
       <form action="/user/register" method="post">
-        Username: <input name="username" /> <br />
-        Password: <input name="password" /><br />
-        <button type="submit">Register</button>
+        <h2>Register</h2>
+        <div class="form-group">
+          Username: <input name="username" /> <br />
+        </div>
+        <div class="form-group">
+          Password: <input name="password" /><br />
+        </div>
+        <div class="form-group">
+          <button type="submit">Register</button>
+        </div>
       </form>
+    </div>
 
   </body>
 </html>

@@ -1,3 +1,8 @@
-<% if (username) { %>
-  Welcome, <%= username %>. <a href="/user/logout">Log out</a>
-<% } %>
+<ul class="nav nav-tabs nav-justified">
+  <li role="presentation"><a href="/teapots">Home</a></li>
+  <li role="presentation"><a href="/teapots/new">Add a new teapot</a></li>
+  <% if (username) { %>
+    <li role="presentation" class="disabled"><a href="#">Hi <%= username %>! </a></li>
+    <li role="presentation"><a href="/user/logout"> Log out</a></li>
+  <% } %>
+</ul>
