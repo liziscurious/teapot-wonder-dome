@@ -1,7 +1,15 @@
+* {
+  font-family: 'Questrial', sans-serif !important;
+}
+
 img {
   max-width: 90%;
 }
 
-#edit-delete {
-  display: inline !important;
+#edit-delete, #comments-body {
+  display: inline-flex !important;
 }
+
+/*.page-header{
+  color:
+}*/

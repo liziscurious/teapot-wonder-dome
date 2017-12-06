@@ -4,6 +4,7 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
+    <p><%= currentUser[0]._id %> </p>
     <h1> Add a new teapot</h1>
 
     <form action="/teapots" method="post">
@@ -29,8 +30,7 @@
       </div>
 
       <div class="form-group">
-        <label for="submitted_by">Submitted By</label>
-        <input type="text" name="submitted_by"/>
+        <input type="hidden" name="user" value="<%= currentUser[0]._id %>"/>
       </div>
 
       <div class="form-group">

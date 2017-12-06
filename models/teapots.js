@@ -6,8 +6,7 @@ const teapotSchema  = mongoose.Schema({
   nameOfTeapot: { type: String, require: true },
   material: String,
   writeUp: { type: String, require: true },
-  submitted_by: { type: String, require: true},
-  // submitted_by: { type: mongoose.Schema.Types.ObjectId, ref:  'user'}
+  user: { type: mongoose.Schema.Types.ObjectId, ref:  'User'}
 });
 
 module.exports  = mongoose.model('Teapot', teapotSchema);

@@ -3,10 +3,9 @@
 const mongoose          = require('mongoose');
 
 const commentSchema     = mongoose.Schema({
-  author: String,
   content:  { type: String, require:  true  },
-
-  teapot: { type: mongoose.Schema.Types.ObjectId, ref:  'teapot'}
+  teapot: { type: mongoose.Schema.Types.ObjectId, ref:  'teapot'},
+  user: { type: mongoose.Schema.Types.ObjectId, ref:  'User'}
 });
 
 module.exports  = mongoose.model('Comment', commentSchema);

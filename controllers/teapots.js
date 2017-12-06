@@ -9,15 +9,15 @@ const User            = require('../models/users.js');
 
 // index route (GET)
 router.get('/', async (req, res) => {
-  // try{
+  try{
     const allTeapots = await Teapot.find();
       res.render('./teapots/index.ejs', {
         allTeapots,
         username: req.session.username
       });
-  // } catch (err) {
-  //   res.send(err.message);
-  // }
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 
 // new  (GET)
@@ -25,6 +25,7 @@ router.get('/new', async (req, res) => {
   if (req.session.logged){
     try {
       const currentUser = await User.find({username: req.session.username});
+      console.log({currentUser});
       res.render('./teapots/new.ejs', {currentUser});
     } catch (err) {
       res.send(err.message);
@@ -42,7 +43,9 @@ router.get('/new', async (req, res) => {
 router.post('/', async (req, res) => {
   if (req.session.logged) {
     try {
+      console.log(req.body);
       const newTeapot = await Teapot.create(req.body);
+      console.log(newTeapot);
       res.redirect('/teapots/'+newTeapot.id);
     } catch (err) {
       res.send(err.message);
@@ -60,9 +63,12 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const oneTeapot = await Teapot.findById(req.params.id);
+    console.log(oneTeapot.user);
     const comments  = await Comment.find( {teapot: oneTeapot._id});
+    const userAuthor = await User.findById(oneTeapot.user);
+    const currentUser = await User.find({username: req.session.username});
     res.render('./teapots/show.ejs', {
-      oneTeapot, comments, username: req.session.username});
+      oneTeapot, comments, username: req.session.username, userAuthor, currentUser});
   } catch (err) {
     res.send(err.message);
   }
@@ -102,7 +108,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// delete (DELETE) ----->> only deletes teapots now <<--------
+// delete (DELETE) ----->> deletes teapots and associated comments <<------
 router.delete('/:id', async (req, res) => {
   if (req.session.logged) {
     try {
