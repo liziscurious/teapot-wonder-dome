@@ -1,4 +1,4 @@
-* {
+.nav, h1, .panel, a{
   font-family: 'Questrial', sans-serif !important;
 }
 
@@ -10,6 +10,9 @@ img {
   display: inline-flex !important;
 }
 
-/*.page-header{
-  color:
-}*/
+#welcome-h1 {
+  /*color: #C33C54;*/
+  background-color: #84DCC6 !important;
+  border-radius: 10px !important;
+  padding-top: 4px;
+}

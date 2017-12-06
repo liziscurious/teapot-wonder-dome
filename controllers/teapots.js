@@ -66,9 +66,8 @@ router.get('/:id', async (req, res) => {
     console.log(oneTeapot.user);
     const comments  = await Comment.find( {teapot: oneTeapot._id});
     const userAuthor = await User.findById(oneTeapot.user);
-    const currentUser = await User.find({username: req.session.username});
     res.render('./teapots/show.ejs', {
-      oneTeapot, comments, username: req.session.username, userAuthor, currentUser});
+      oneTeapot, comments, username: req.session.username, userAuthor});
   } catch (err) {
     res.send(err.message);
   }
@@ -79,13 +78,9 @@ router.get('/:id/edit', async (req, res) => {
   if (req.session.logged) {
     try {
       const editThisTeapot = await Teapot.findById(req.params.id);
-      // if (req.session.username === editThisTeapot.submitted_by){
         res.render('./teapots/edit.ejs', {
           editThisTeapot, username: req.session.username
         });
-      // } else {
-      //   res.render('./sessions/wrong-user.ejs');
-      // }
     } catch (err) {
       res.send(err.message);
     }

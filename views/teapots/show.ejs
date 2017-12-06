@@ -19,7 +19,7 @@
       <div class="panel panel-default">
         <div class="panel-heading"> Comments </div>
         <% for (let comment of comments )  { %>
-          <div class="panel-body" id="comments-body"> <%= comment.author %> : <%= comment.content %>
+          <div class="panel-body" id="comments-body"> <%= comment.user %> : <%= comment.content %>
             <form action="/comments/<%=comment._id%>?_method=DELETE" method=post>
               <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
             </form>
@@ -29,8 +29,8 @@
         <div class="panel-heading" id="add-comment">Add a Comment
           <br/>
           <form action="/comments" method="post">
-            <label for="author">User </label>
-            <input type="text" name="author"/>
+            <label for="user">User </label>
+            <input type="text" name="user"/>
             <label for="content">Comment </label>
             <input type="text" name="content"/>
             <input type="hidden" name="teapot" value="<%= oneTeapot._id %>"/>

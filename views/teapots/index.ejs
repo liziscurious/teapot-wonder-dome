@@ -7,15 +7,17 @@
     <% include ../partials/nav.ejs %>
 
     <div class="container-fluid">
-      <div class="page-header text-center">
+      <div class="page-header text-center" id="welcome-h1">
         <h1>Welcome to the Teapot Wonder Dome</h1>
       </div>
       <div class="container-fluid">
           <% for(let teapot of allTeapots) { %>
             <div class="col-xs-6 col-md-4">
-              <a href = "/teapots/<%=teapot._id%>">
-                <img src="<%=teapot.url%>"/>
-              </a>
+              <div>
+                <a href = "/teapots/<%=teapot._id%>">
+                  <img src="<%=teapot.url%>"/>
+                </a>
+              </div>
             </div>
           <% } %>
       </div>
