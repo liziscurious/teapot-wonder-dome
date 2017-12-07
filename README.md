@@ -12,3 +12,9 @@ Teapot Wonder Dome is a MEN full-stack application using Models, Views, and Cont
 ## User Story
   * All users can view teapots and comments.
   * The logged in user can add new teapots, modify teapots, delete teapots, and add and delete comments to express their enthusiasm for teapots.
+
+
+### Room for Growth
+
+#### User modifications
+I would like to be able to only allow the user who created a certain teapot to be able to edit or delete it, as currently any logged in user can modify or delete any teapot. Also comments do not currently display the name of the logged in user, so logged in users can post under any name. 
