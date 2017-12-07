@@ -24,6 +24,8 @@ li a{
   color: #59767A !important;
   background-color: #99AEB5 !important;
   border: solid 1px #59767A !important;
+  margin: 2px;
+  border-radius: 6px !important;
 }
 
 #img-index {
@@ -46,8 +48,30 @@ li a{
 
 .panel {
   background-color: #E8E6E9 !important;
+  font-size: 1.3em;
 }
 
 .edit-class {
   border: 2px solid #5D7191 !important;
+}
+
+.nav {
+  font-size: 1.5em !important;
+}
+
+.page-header h1 {
+  font-size: 3em !important;
+}
+
+.btn, label {
+  font-size: 1.3em !important;
+}
+
+.new-form {
+  max-width: 30% !important;
+  border: 1px solid black !important;
+}
+
+.glyphicon-trash {
+  font-size: .7em !important;
 }

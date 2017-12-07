@@ -4,9 +4,8 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
-    <% include ../partials/nav.ejs %>
-
     <div class="container-fluid text-center negative-space">
+      <% include ../partials/nav.ejs %>
       <h1>This Teapot Right Here</h1>
       <div class="jumbotron text-center">
         <img src="<%= oneTeapot.url %>" />
@@ -21,7 +20,7 @@
         <% for (let comment of comments )  { %>
           <div class="panel-body" id="comments-body"> <%= comment.user %> : <%= comment.content %>
             <form action="/comments/<%=comment._id%>?_method=DELETE" method=post>
-              <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+              <button class="btn btn-default btn-xs"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
             </form>
           </div>
         <% } %>
