@@ -26,7 +26,7 @@ router.get('/new', async (req, res) => {
     try {
       const currentUser = await User.find({username: req.session.username});
       console.log({currentUser});
-      res.render('./teapots/new.ejs', {currentUser});
+      res.render('./teapots/new.ejs', {currentUser, username: req.session.username});
     } catch (err) {
       res.send(err.message);
     }
@@ -94,7 +94,7 @@ router.put('/:id', async (req, res) => {
   if (req.session.logged){
     try {
       const updatedTeapot = await Teapot.findByIdAndUpdate(req.params.id, req.body);
-      res.redirect('/');
+      res.redirect('/teapots/' + updatedTeapot._id);
     } catch (err) {
       res.send(err.message);
     }

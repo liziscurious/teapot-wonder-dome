@@ -6,7 +6,7 @@
   <body>
     <% include ../partials/nav.ejs %>
 
-    <div class="container-fluid text-center">
+    <div class="container-fluid text-center negative-space">
       <h1>This Teapot Right Here</h1>
       <div class="jumbotron text-center">
         <img src="<%= oneTeapot.url %>" />
@@ -46,7 +46,8 @@
           <button class="btn btn-default">Delete this teapot <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
         </form>
       </div>
-
+      <% include ../partials/footer.ejs %>
     </div>
+
   </body>
 </html>

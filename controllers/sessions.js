@@ -8,7 +8,7 @@ const User            = require('../models/users.js');
 router.get('/login', (req, res) => {
   // console.log(req.session);
   try {
-    res.render('sessions/login.ejs');
+    res.render('sessions/login.ejs', {username: req.session.username});
   } catch (err) {
     res.send(err.message);
   }

@@ -4,16 +4,16 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
-    <% include ../partials/nav.ejs %>
 
-    <div class="container-fluid">
+    <div class="container-fluid negative-space">
+      <% include ../partials/nav.ejs %>
       <div class="page-header text-center" id="welcome-h1">
         <h1>Welcome to the Teapot Wonder Dome</h1>
       </div>
       <div class="container-fluid">
           <% for(let teapot of allTeapots) { %>
-            <div class="col-xs-6 col-md-4">
-              <div>
+            <div class="col-xs-6 center-block">
+              <div id="img-index">
                 <a href = "/teapots/<%=teapot._id%>">
                   <img src="<%=teapot.url%>"/>
                 </a>
@@ -21,7 +21,7 @@
             </div>
           <% } %>
       </div>
+      <% include ../partials/footer.ejs %>
     </div>
-
   </body>
 </html>

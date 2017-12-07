@@ -1,9 +1,10 @@
-.nav, h1, .panel, a{
+.nav, h1, .panel, a, .jumbotron, form {
   font-family: 'Questrial', sans-serif !important;
 }
 
 img {
-  max-width: 90%;
+  max-width: 98%;
+  border-radius: 10px !important;
 }
 
 #edit-delete, #comments-body {
@@ -12,7 +13,41 @@ img {
 
 #welcome-h1 {
   /*color: #C33C54;*/
-  background-color: #84DCC6 !important;
+  background-color: #68A3B0 !important;
+  border: 1px solid #59767A !important;
   border-radius: 10px !important;
   padding-top: 4px;
+
+}
+
+li a{
+  color: #59767A !important;
+  background-color: #99AEB5 !important;
+  border: solid 1px #59767A !important;
+}
+
+#img-index {
+  padding: 5px !important;
+}
+
+.negative-space {
+  background-color: #CCC6C9 !important;
+}
+
+.jumbotron {
+  background-color: #E4E0DF !important;
+}
+
+.jumbotron img {
+  max-width: 65% !important;
+  padding-bottom: 40px !important;
+  border-radius: 10px !important;
+}
+
+.panel {
+  background-color: #E8E6E9 !important;
+}
+
+.edit-class {
+  border: 2px solid #5D7191 !important;
 }
