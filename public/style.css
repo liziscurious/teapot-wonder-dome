@@ -3,7 +3,8 @@
 }
 
 img {
-  max-width: 98%;
+  max-width: 70%;
+  max-height: 60%;
   border-radius: 10px !important;
 }
 
